@@ -473,4 +473,40 @@ int ordenarPasajerosPorCodigo(ePasajero* pasajeros, int tam, int orden)
     return todoOk;
 }
 
+int hardcodearPassengers(ePasajero* pasajeros, int tam, int cant, int* pId, int* pFlag, int* pFlagCarga)
+{
+    int todoOk = 0;
+    int j = 0;
+    int indiceLibre;
+
+    ePasajero impostores[10] =
+    {
+        {00000,"leandro", "osella",100000,"a3aa4a6aaa",1,1,0},
+        {00000,"sebastian", "zrinshi",200000,"cccc34c7cc",2,2,0},
+        {00000,"felipe", "niksevich",600000,"d2d32d375d",1,3,0},
+        {00000,"valentin", "costa",400000,"b3b2bbbb5b",1,3,0},
+        {00000,"yanzon", "nicolas",100000,"e2e3ee45ee",3,2,0},
+        {00000,"telma", "malano",200000,"a678hj76hg",2,1,0},
+        {00000,"melisa", "lescano",100000,"cvfr34v7ic",1,2,0},
+        {00000,"francesca", "ricci",600000,"g2h32k685d",2,3,0},
+        {00000,"juan", "miele",140000,"c5h2llbb5b",1,3,0},
+        {00000,"giuliana", "tognini",160000,"a2v3ce75em",3,1,0}
+    };
+
+    if(pasajeros!=NULL && tam>0 && pId!=NULL && cant>0 && cant<=tam)
+    {
+        buscarLibre(pasajeros, tam, &indiceLibre);
+        for(int i=indiceLibre; i<cant+indiceLibre; i++)
+        {
+            pasajeros[i] = impostores[j];
+            pasajeros[i].id = *pId;
+            *pId = *pId + 1;
+            j++;
+        }
+        todoOk = 1;
+        *pFlag = 1;
+        *pFlagCarga = 1;
+    }
+    return todoOk;
+}
 

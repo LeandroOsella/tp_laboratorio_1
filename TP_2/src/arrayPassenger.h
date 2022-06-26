@@ -137,3 +137,16 @@ int ordenarPasajerosPorCodigo(ePasajero* pasajeros, int tam, int orden);
  *
  */
 int listarPasajerosActivos(ePasajero* pasajeros, int tam);
+
+/** \brief permite realizar la carga forzada de un maximo de 10 pasajeros
+ *
+ * \param pasajeros ePasajero* lista de pasajeros
+ * \param tam int tamaño de la lista de pasajeros
+ * \param cant int cantidad de pasajeros que se desean cargar
+ * \param pId int* puntero a id que se le asigna a cada pasajero
+ * \param pFlag int* puntero a bandera del alta de pasajero
+ * \param pFlagCarga int* puntero a bandera de carga forzada (evita que se realize mas de 1 vez)
+ * \return int retorna 1 si todo OK o 0 si hubo algun error
+ *
+ */
+int hardcodearPassengers(ePasajero* pasajeros, int tam, int cant, int* pId, int* pFlag, int* pFlagCarga);
